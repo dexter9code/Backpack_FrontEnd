@@ -56,9 +56,9 @@ const Tour = function (props) {
               <span className="card__footer-value">4.9</span>
               <span className="card__footer-text">rating (21)</span>
             </p>
-            <a href="#" className="btn btn--green btn--small">
+            <button href="#" className="btn btn--green btn--small">
               Details
-            </a>
+            </button>
           </div>
         </div>
       </div>

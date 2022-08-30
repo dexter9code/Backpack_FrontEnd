@@ -6,11 +6,11 @@ import "./Footer.css";
 
 const Footer = function (props) {
   return (
-    <div class="footer">
-      <div class="footer__logo">
+    <div className="footer">
+      <div className="footer__logo">
         <img src={logo} alt="" />
       </div>
-      <ul class="footer__nav">
+      <ul className="footer__nav">
         <li>
           <a href="#">About us</a>
         </li>
@@ -27,7 +27,7 @@ const Footer = function (props) {
           <a href="#">Contact</a>
         </li>
       </ul>
-      <p class="footer__copyright">&copy; by Rudy. Made with love .</p>
+      <p className="footer__copyright">&copy; by Rudy. Made with love .</p>
     </div>
   );
 };

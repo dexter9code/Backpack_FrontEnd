@@ -5,6 +5,7 @@ import Navbar from "./components/screens/Navbar";
 import Tour from "./components/screens/Tour";
 import { getData } from "./components/common/getData";
 import Overview from "./components/screens/Overview";
+import Account from "./components/screens/account/Account";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ function App() {
     <>
       <Navbar />
       {/* <Tour /> */}
-      <Overview />
+      {/* <Overview /> */}
+      <Account />
       <Footer />
     </>
   );

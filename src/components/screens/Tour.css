@@ -170,7 +170,7 @@
       to(#28b487)
     );
     background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
-    opacity: 0.7;
+    opacity: 0.5;
   }
   .card__picture-img {
     -o-object-fit: cover;
@@ -231,7 +231,10 @@
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 1.75rem;
     grid-column-gap: 2rem;
-    padding: 2.5rem 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
   .card__sub-heading {
     font-size: 1.2rem;
@@ -265,7 +268,10 @@
   }
   .card__footer {
     background-color: #f7f7f7;
-    padding: 2.5rem 3rem;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     border-top: 1px solid #f1f1f1;
     font-size: 1.4rem;
     display: grid;

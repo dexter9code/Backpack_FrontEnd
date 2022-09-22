@@ -45,7 +45,6 @@ const Tour = function (props) {
                   <svg className="card__icon">
                     <use xlinkHref="../assets/svg/icons#icon-user"></use>
                   </svg>
-                  <span>25 people</span>
                 </div>
               </div>
 
@@ -68,7 +67,6 @@ const Tour = function (props) {
           ))}
         </div>
       </main>
-      {/* <p>{tours}</p> */}
     </>
   );
 };

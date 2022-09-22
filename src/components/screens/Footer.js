@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../assets/icons/backpackLogo.png";
+import logo from "../assets/icons/backpack-logo-trans.png";
 
 import "./Footer.css";
 
@@ -27,7 +27,7 @@ const Footer = function (props) {
           <a href="#">Contact</a>
         </li>
       </ul>
-      <p className="footer__copyright">&copy; by Rudy. Made with love .</p>
+      <p className="footer__copyright">&copy; by Rudy. Made with ❤️ .</p>
     </div>
   );
 };

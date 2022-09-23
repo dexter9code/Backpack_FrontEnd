@@ -11,6 +11,8 @@ import bookmarkImg from "./bookmark.png";
 import star from "./star.png";
 import userImg from "./user.png";
 import toursImg from "./tour-guide.png";
+import okImg from "./like.png";
+import warningImg from "./warning.png";
 
 export {
   calenderImg,
@@ -26,4 +28,6 @@ export {
   star,
   userImg,
   toursImg,
+  okImg,
+  warningImg,
 };

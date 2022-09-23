@@ -7,6 +7,7 @@ import { getData } from "./components/common/getData";
 import Overview from "./components/screens/Overview";
 import Account from "./components/screens/account/Account";
 import SignIn from "./components/screens/signIn/SignIn";
+import Notification from "./components/notification/Notification";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,8 @@ function App() {
       {/* <Tour /> */}
       {/* <Overview /> */}
       {/* <Account /> */}
-      <SignIn />
+      {/* <SignIn /> */}
+      <Notification />
       <Footer />
     </>
   );

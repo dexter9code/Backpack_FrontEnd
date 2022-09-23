@@ -21,6 +21,7 @@
     margin-bottom: 3rem !important;
   }s
 
+  .form__input:active,
   .form__input:focus {
     outline: none;
     border-bottom: 3px solid #55c57a;

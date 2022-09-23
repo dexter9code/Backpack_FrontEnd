@@ -15,10 +15,10 @@
     -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
   }
-  .alert--success {
+  .alert__success {
     background-color: #20bf6b;
   }
-  .alert--error {
+  .alert__error {
     background-color: #eb4d4b;
   }
 
@@ -26,6 +26,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.5ms;
 }
 
 .alert__container img {

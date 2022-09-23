@@ -95,8 +95,7 @@ const Account = function (props) {
               <div className="form__group right">
                 <GreenButton
                   title={`save settings`}
-                  class1={`btn--small`}
-                  class2={`btn--green`}
+                  classes={`btn--small btn--green`}
                 />
               </div>
             </form>
@@ -129,8 +128,7 @@ const Account = function (props) {
               <div className="form__group right">
                 <GreenButton
                   title={`save password`}
-                  class1={`btn--small`}
-                  class2={`btn--green`}
+                  classes={`btn--small btn--green`}
                 />
               </div>
             </form>

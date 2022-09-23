@@ -1,7 +1,7 @@
 import "./greenButton.css";
 
-const GreenButton = ({ title, class1, class2 }) => {
-  return <button className={`btn ${class1} ${class2}`}>{title}</button>;
+const GreenButton = ({ title, classes }) => {
+  return <button className={`btn ${classes}`}>{title}</button>;
 };
 
 export default GreenButton;

@@ -8,6 +8,7 @@ import Overview from "./components/screens/Overview";
 import Account from "./components/screens/account/Account";
 import SignIn from "./components/screens/signIn/SignIn";
 import Notification from "./components/notification/Notification";
+import SignUp from "./components/screens/sigup/sigup";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ function App() {
       {/* <Tour /> */}
       {/* <Overview /> */}
       {/* <Account /> */}
-      <SignIn />
+      {/* <SignIn /> */}
+      <SignUp />
       <Footer />
     </>
   );

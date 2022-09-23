@@ -15,6 +15,17 @@ const SignIn = function (props) {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+
+    if (!email || !password) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `Please check input values`,
+        })
+      );
+    }
+
     console.log({ email, password });
     dispatch(
       showNotification({

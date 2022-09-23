@@ -1,5 +1,7 @@
 :root {
   --section-rotate: 9vw;
+  --primary-color:#ff5349;
+  --secondary-color:#7cb6ff;
 }
 
 ::-moz-selection {

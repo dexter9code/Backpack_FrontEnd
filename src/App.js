@@ -9,6 +9,7 @@ import Account from "./components/screens/account/Account";
 import SignIn from "./components/screens/signIn/SignIn";
 import Notification from "./components/notification/Notification";
 import SignUp from "./components/screens/sigup/sigup";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,11 +30,13 @@ function App() {
           message={notificationState.message}
         />
       )}
-      {/* <Tour /> */}
-      {/* <Overview /> */}
-      {/* <Account /> */}
-      {/* <SignIn /> */}
-      <SignUp />
+      <Routes>
+        <Route path="/" element={<Tour />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/auth/dashboard" element={<Account />} />
+        <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/auth/signup" element={<SignUp />} />
+      </Routes>
       <Footer />
     </>
   );

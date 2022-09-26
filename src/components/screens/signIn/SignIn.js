@@ -4,19 +4,26 @@ import GreenButton from "./../../common/buttons/GreenButton";
 import InputField from "./../../common/inputField/InputField";
 import { useDispatch } from "react-redux";
 import { showNotification } from "../../../features/notificationSlice";
+import { sendReq } from "../../../helper/send-http";
+import { useCookies } from "react-cookie";
+import { getUser } from "../../../features/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = function (props) {
+  const [_, setCookie] = useCookies(["jwt"]);
+  const naviagate = useNavigate();
+
   const dispatch = useDispatch();
 
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    if (!email || !password) {
+    if (!email || !password || !email.trim().includes("@")) {
       dispatch(
         showNotification({
           status: `error`,
@@ -26,14 +33,42 @@ const SignIn = function (props) {
       );
     }
 
-    console.log({ email, password });
-    dispatch(
-      showNotification({
-        status: `success`,
-        title: `ok`,
-        message: `All values are ok`,
-      })
-    );
+    const reqBody = { email, password };
+    try {
+      const data = await sendReq(
+        `http://localhost:8080/backpack/api/r1/user/login`,
+        `POST`,
+        reqBody
+      );
+      setCookie("jwt", data.token, { path: `/` });
+
+      dispatch(
+        getUser({
+          name: data.data.name,
+          email: data.data.email,
+        })
+      );
+
+      dispatch(
+        showNotification({
+          status: `success`,
+          title: `ok`,
+          message: `Login Successfull`,
+        })
+      );
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
+      naviagate(-1, { replace: true });
+    } catch (error) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `Invalid Email or Password`,
+        })
+      );
+      return;
+    }
   };
 
   return (

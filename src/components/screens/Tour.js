@@ -4,7 +4,6 @@ import "./Tour.css";
 
 const Tour = function (props) {
   const tours = useSelector((state) => state.Tour.tours);
-
   return (
     <>
       <main className="main">

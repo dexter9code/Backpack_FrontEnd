@@ -2,21 +2,29 @@ import React from "react";
 
 import logo from "../assets/icons/backpackLogo.png";
 import "./Navbar.css";
-import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import userImg from "../assets/img/default.jpg";
-import { removeUser } from "../../features/userSlice";
 import { useCookies } from "react-cookie";
+import jwtDecode from "jwt-decode";
 
 const Navbar = function (props) {
-  const user = useSelector((state) => state.Users.user);
-  const filterName = user?.name.split(" ")[0];
-  const dispatch = useDispatch();
-  const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
+  const [cookies, _, removeCookie] = useCookies(["jwt"]);
+
+  const jwtId = cookies.jwt;
+  let jwtToken;
+  try {
+    jwtToken = jwtDecode(jwtId);
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  const filterName = jwtToken?.name.split(" ")[0];
+  const userImage = sessionStorage.getItem("image").includes("http")
+    ? sessionStorage.getItem("image")
+    : userImg;
 
   const onClickHandler = (e) => {
     removeCookie("jwt", { path: `/` });
-    dispatch(removeUser());
     window.location.reload();
   };
 
@@ -46,10 +54,10 @@ const Navbar = function (props) {
       </Link>
       <nav className="nav nav--user">
         <button className="nav__el">My bookings</button>
-        {user && (
+        {jwtToken && (
           <>
             <button className="nav__el">
-              <img src={userImg} alt="user-img" className="nav__user-img" />
+              <img src={userImage} alt={"user"} className="nav__user-img" />
               <span>{filterName}</span>
             </button>
             <button onClick={onClickHandler} className="nav__el">
@@ -57,7 +65,7 @@ const Navbar = function (props) {
             </button>
           </>
         )}
-        {!user && (
+        {!jwtToken && (
           <Link to={`/auth/signin`} className="nav__el nav__el--cta">
             Login
           </Link>

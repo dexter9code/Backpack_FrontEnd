@@ -10,7 +10,7 @@ import { getUser } from "../../../features/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = function (props) {
-  const [_, setCookie] = useCookies(["jwt"]);
+  const [cookie, setCookie] = useCookies(["jwt"]);
   const naviagate = useNavigate();
 
   const dispatch = useDispatch();
@@ -41,14 +41,7 @@ const SignIn = function (props) {
         reqBody
       );
       setCookie("jwt", data.token, { path: `/` });
-
-      dispatch(
-        getUser({
-          name: data.data.name,
-          email: data.data.email,
-        })
-      );
-
+      sessionStorage.setItem("image", data.data.photo);
       dispatch(
         showNotification({
           status: `success`,

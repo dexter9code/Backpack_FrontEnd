@@ -13,8 +13,8 @@ const Tour = function (props) {
   const tours = useSelector((state) => state.Tour.tours);
   const navigation = useNavigate();
 
-  const onClickHandler = (tour) => {
-    navigation(`/tours/${tour._id}`);
+  const onClickHandler = (id) => {
+    navigation(`/tours/${id}`);
   };
 
   return (
@@ -79,7 +79,7 @@ const Tour = function (props) {
                   <span className="card__footer-text"> rating (21)</span>
                 </p>
                 <button
-                  onClick={() => onClickHandler(item)}
+                  onClick={() => onClickHandler(item._id)}
                   className="btn btn--green btn--small"
                 >
                   Details

@@ -1,9 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getTour } from "../../features/tourSlice";
+import {
+  navigationImg,
+  blackCalenderImg,
+  user_blackImg,
+} from "../assets/icons/iconsDefault";
 import "./Tour.css";
 
 const Tour = function (props) {
   const tours = useSelector((state) => state.Tour.tours);
+  const navigation = useNavigate();
+
+  const onClickHandler = (tour) => {
+    navigation(`/tours/${tour._id}`);
+  };
+
   return (
     <>
       <main className="main">
@@ -29,21 +42,28 @@ const Tour = function (props) {
                 <h4 className="card__sub-heading">{item.duration}-day tour</h4>
                 <p className="card__text">{item.summary}</p>
                 <div className="card__data">
-                  <svg className="card__icon">
-                    <use xlinkHref="../assets/svg/icons.svg#icon-map-pin"></use>
-                  </svg>
-                  <span>Banff, India</span>
+                  <img
+                    className="card__icon"
+                    src={navigationImg}
+                    alt="pin-logo"
+                  />
+                  <span>{item.location?.description.split(",")[0]}</span>
                 </div>
                 <div className="card__data">
-                  <svg className="card__icon">
-                    <use xlinkHref="../assets/svg/icons#icon-calendar"></use>
-                  </svg>
-                  <span>April 2021</span>
+                  <img
+                    className="card__icon"
+                    src={blackCalenderImg}
+                    alt="calendar-logo"
+                  />
+                  <span>2022-23</span>
                 </div>
                 <div className="card__data">
-                  <svg className="card__icon">
-                    <use xlinkHref="../assets/svg/icons#icon-user"></use>
-                  </svg>
+                  <img
+                    className="card__icon"
+                    src={user_blackImg}
+                    alt="user-logo"
+                  />
+                  <span>{item.guides.length} guides available</span>
                 </div>
               </div>
 
@@ -58,7 +78,10 @@ const Tour = function (props) {
                   </span>
                   <span className="card__footer-text"> rating (21)</span>
                 </p>
-                <button href="#" className="btn btn--green btn--small">
+                <button
+                  onClick={() => onClickHandler(item)}
+                  className="btn btn--green btn--small"
+                >
                   Details
                 </button>
               </div>

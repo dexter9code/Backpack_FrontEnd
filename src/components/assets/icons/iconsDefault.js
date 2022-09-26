@@ -13,6 +13,9 @@ import userImg from "./user.png";
 import toursImg from "./tour-guide.png";
 import okImg from "./like.png";
 import warningImg from "./warning.png";
+import navigationImg from "./navigation.png";
+import blackCalenderImg from "./black_calendar.png";
+import user_blackImg from "./black_user.png";
 
 export {
   calenderImg,
@@ -30,4 +33,7 @@ export {
   toursImg,
   okImg,
   warningImg,
+  navigationImg,
+  blackCalenderImg,
+  user_blackImg,
 };

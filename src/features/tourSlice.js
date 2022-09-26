@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   tours: [],
+  tour: [],
   isLoading: false,
   currentStatus: null,
 };
@@ -12,6 +13,9 @@ const TourSlice = createSlice({
   reducers: {
     getTours(state, action) {
       state.tours = [action.payload];
+    },
+    getTour(state, action) {
+      state.tour = [action.payload];
     },
     checkLoading(state, action) {
       state.isLoading = action.payload;
@@ -25,6 +29,7 @@ const TourSlice = createSlice({
   },
 });
 
-export const { checkLoading, getTours, checkStatus } = TourSlice.actions;
+export const { checkLoading, getTours, checkStatus, getTour } =
+  TourSlice.actions;
 
 export default TourSlice.reducer;

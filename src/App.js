@@ -10,6 +10,7 @@ import SignIn from "./components/screens/signIn/SignIn";
 import Notification from "./components/notification/Notification";
 import SignUp from "./components/screens/sigup/sigup";
 import { Routes, Route } from "react-router-dom";
+import Home from "./components/screens/landing/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,8 +32,9 @@ function App() {
         />
       )}
       <Routes>
-        <Route path="/" element={<Tour />} />
-        <Route path="/overview" element={<Overview />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/tours" element={<Tour />} />
+        <Route path="/tours/:id" element={<Overview />} />
         <Route path="/auth/dashboard" element={<Account />} />
         <Route path="/auth/signin" element={<SignIn />} />
         <Route path="/auth/signup" element={<SignUp />} />

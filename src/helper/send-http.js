@@ -4,7 +4,6 @@ export const sendReq = async (url, requestMethod, bodyData) => {
       method: requestMethod,
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: bodyData ? JSON.stringify(bodyData) : null,
     });

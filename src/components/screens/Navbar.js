@@ -23,7 +23,7 @@ const Navbar = function (props) {
   return (
     <div className="header">
       <nav className="nav nav--tours">
-        <Link to={"/"} className="nav__el">
+        <Link to={"/tours"} className="nav__el">
           All Tours
         </Link>
         <form className="nav__search">
@@ -39,7 +39,7 @@ const Navbar = function (props) {
           />
         </form>
       </nav>
-      <Link to={"/"}>
+      <Link to={"/tours"}>
         <div className="header__logo">
           <img src={logo} alt="backpack-logo" />
         </div>

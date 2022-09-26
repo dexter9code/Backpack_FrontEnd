@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./overview.css";
 
 import {
@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { sendReq } from "./../../helper/send-http";
 import { getTour, checkLoading } from "../../features/tourSlice";
+import Loading from "../loading/Loading";
 
 const Overview = function (props) {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Overview = function (props) {
 
   return (
     <>
-      {loading && <p>Loading....</p>}
+      {loading && <Loading />}
       {!loading && (
         <>
           <section className="section-header">

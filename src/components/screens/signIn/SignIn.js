@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 import { showNotification } from "../../../features/notificationSlice";
 import { sendReq } from "../../../helper/send-http";
 import { useCookies } from "react-cookie";
-import { getUser } from "../../../features/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = function (props) {
-  const [cookie, setCookie] = useCookies(["jwt"]);
+  // eslint-disable-next-line no-unused-vars
+  const [_, setCookie] = useCookies(["jwt"]);
   const naviagate = useNavigate();
 
   const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const SignIn = function (props) {
       );
       setCookie("jwt", data.token, { path: `/` });
       sessionStorage.setItem("image", data.data.photo);
+      sessionStorage.setItem("email", data.data.email);
       dispatch(
         showNotification({
           status: `success`,

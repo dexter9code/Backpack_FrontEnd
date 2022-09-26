@@ -12,8 +12,16 @@ import AccountSettingCard from "../../common/accountSideCard/AccountSetting";
 import "./account.css";
 import InputField from "./../../common/inputField/InputField";
 import GreenButton from "./../../common/buttons/GreenButton";
+import { DecodeJWT } from "./../../../helper/decodeCookie";
+import defaultImg from "../../assets/img/default.jpg";
 
 const Account = function (props) {
+  const user = DecodeJWT(props.user);
+  const userEmail = sessionStorage.getItem("email");
+  const userPhoto = sessionStorage.getItem("image").includes("http")
+    ? sessionStorage.getItem("image")
+    : defaultImg;
+
   return (
     <main className="main">
       <div className="user-view">
@@ -71,21 +79,21 @@ const Account = function (props) {
                 lableTitle={`Name`}
                 id="name"
                 inputType={`text`}
-                inputDefault={`Rudy`}
+                inputDefault={user.name.split(" ")[0]}
                 required={true}
               />
               <InputField
                 lableTitle={`Email`}
                 id="email"
                 inputType={`email`}
-                inputDefault={`admin@io.com`}
+                inputDefault={userEmail}
                 required={true}
                 extraStyles={`ma-bt-md`}
               />
               <div className="form__group form__photo-upload">
                 <img
                   className="form__user-photo"
-                  src="img/user.jpg"
+                  src={userPhoto}
                   alt="User-img"
                 />
                 <a className="btn-text" href="">

@@ -2,12 +2,13 @@ import React from "react";
 
 import logo from "../assets/icons/backpackLogo.png";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import userImg from "../assets/img/default.jpg";
 import { useCookies } from "react-cookie";
 import jwtDecode from "jwt-decode";
 
 const Navbar = function (props) {
+  // eslint-disable-next-line no-unused-vars
   const [cookies, _, removeCookie] = useCookies(["jwt"]);
 
   const jwtId = cookies.jwt;
@@ -56,10 +57,10 @@ const Navbar = function (props) {
         <button className="nav__el">My bookings</button>
         {jwtToken && (
           <>
-            <button className="nav__el">
+            <NavLink to={"/auth/dashboard"} className="nav__el">
               <img src={userImage} alt={"user"} className="nav__user-img" />
               <span>{filterName}</span>
-            </button>
+            </NavLink>
             <button onClick={onClickHandler} className="nav__el">
               Logout
             </button>

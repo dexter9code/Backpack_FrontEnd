@@ -10,7 +10,6 @@ import {
 } from "../assets/icons/iconsDefault";
 import backpackLogo from "../assets/icons/backpack-logo-trans.png";
 import userimg from "../assets/img/default.jpg";
-import testImage from "../assets/img/tour-1-1.jpg";
 import InformationCard from "./../common/informationCard";
 import TourGuideCard from "./../common/tourGuideCard/TourGuide";
 import ReviewCard from "./../common/reviewCard/ReviewCard";
@@ -39,7 +38,6 @@ const Overview = function (props) {
   }, [dispatch, id]);
 
   const singleTour = useSelector((state) => state.Tour.tour);
-  console.log(singleTour);
 
   return (
     <>

@@ -18,6 +18,7 @@ import { useParams } from "react-router-dom";
 import { sendReq } from "./../../helper/send-http";
 import { getTour, checkLoading } from "../../features/tourSlice";
 import Loading from "../loading/Loading";
+import Map, { Marker } from "react-map-gl";
 
 const Overview = function (props) {
   const dispatch = useDispatch();
@@ -143,7 +144,24 @@ const Overview = function (props) {
             ))}
           </section>
           <section className="section-map">
-            <div id="map" />
+            {/* <div id="map" /> */}
+            <Map
+              mapboxAccessToken="pk.eyJ1Ijoibm90bWF0dXJlIiwiYSI6ImNsOGs4eGd5cDB2ZmIzdnIweDM3cjN6YnQifQ.z3pfnXT8jya8lKz9kICFdw"
+              initialViewState={{
+                longitude: singleTour[0]?.tour.location.coordinates[0],
+                latitude: singleTour[0]?.tour.location.coordinates[1],
+                zoom: 8.5,
+              }}
+              id="map"
+              mapStyle={"mapbox://styles/mapbox/navigation-day-v1"}
+            >
+              <Marker
+                longitude={singleTour[0]?.tour.location.coordinates[0]}
+                latitude={singleTour[0]?.tour.location.coordinates[1]}
+              >
+                <img src={locationImg} alt="location-logo" />
+              </Marker>
+            </Map>
           </section>
           <section className="section-reviews">
             <div className="reviews">

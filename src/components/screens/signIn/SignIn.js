@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { showNotification } from "../../../features/notificationSlice";
 import { sendReq } from "../../../helper/send-http";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = function (props) {
   // eslint-disable-next-line no-unused-vars
@@ -73,6 +73,9 @@ const SignIn = function (props) {
         <h2 className={`${styles.heading_secondary} ${styles.ma_bt_lg}`}>
           Log into your account
         </h2>
+        <span className={`${styles.heading__container} ${styles.ma_ht_lg}`}>
+          New user?<Link to={`/auth/signup`}>singup</Link>
+        </span>
         <form className={styles.form} onSubmit={onSubmitHandler}>
           <InputField
             id={`email`}

@@ -43,11 +43,27 @@
     display: inline-block;
   }
 
+  .heading__container{
+    display: block;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+  .heading__container a{
+    text-decoration: none;
+    font-style: italic;
+    color: var(--primary-color);
+    margin-left: 3px;
+  }
+
+
   .form__group:not(:last-child) {
     margin-bottom: 2.5rem;
   }
   
 
   .ma_bt_lg {
+    margin-bottom: 1.5rem !important;
+  }
+  .ma_ht_lg {
     margin-bottom: 3.5rem !important;
   }

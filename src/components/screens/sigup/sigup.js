@@ -1,20 +1,92 @@
 import styles from "./sigup.module.css";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { showNotification } from "../../../features/notificationSlice";
+import { sendReq } from "./../../../helper/send-http";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = function (props) {
+  const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const [_, setCookie] = useCookies(["jwt"]);
+  const navigation = useNavigate();
+
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const confrimPasswordRef = useRef();
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confrimPasswordRef.current.value;
 
-    console.log({ name, email, password, confirmPassword });
+    if (
+      !name ||
+      !email ||
+      !email.includes("@") ||
+      !password ||
+      !confirmPassword
+    ) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `please fill required field`,
+        })
+      );
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `password mis-match`,
+        })
+      );
+      return;
+    }
+
+    const result = await sendReq(
+      `http://localhost:8080/backpack/api/r1/user/singup`,
+      "POST",
+      {
+        name,
+        email,
+        password,
+        confirmPassword,
+      }
+    );
+
+    const value = `Success`;
+    if (result.status === value) {
+      dispatch(
+        showNotification({
+          status: `success`,
+          title: `account created`,
+          message: `account created `,
+        })
+      );
+    }
+
+    setCookie("jwt", result.token, { path: `/` });
+    sessionStorage.setItem("image", result.data.photo);
+    sessionStorage.setItem("email", result.data.email);
+    sessionStorage.setItem("role", result.data.role);
+
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    confrimPasswordRef.current.value = "";
+
+    setTimeout(() => {
+      navigation("/", { replace: true });
+    }, 1500);
   };
 
   return (
@@ -139,7 +211,7 @@ const SignUp = function (props) {
                 </svg>
               </div>
             </div>
-            <button type="submit">Log in</button>
+            <button type="submit">Sign up</button>
           </form>
         </div>
       </main>

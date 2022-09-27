@@ -15,10 +15,18 @@ import GreenButton from "./../../common/buttons/GreenButton";
 import { DecodeJWT } from "./../../../helper/decodeCookie";
 import defaultImg from "../../assets/img/default.jpg";
 import infoHandler from "../../../helper/infoHandler";
+import { useDispatch } from "react-redux";
+import { showNotification } from "../../../features/notificationSlice";
 
 const Account = function (props) {
+  const dispatch = useDispatch();
   const usernameRef = useRef();
   const userImageRef = useRef();
+
+  const currentPasswordRef = useRef();
+  const newPasswordRef = useRef();
+  const confirmNewPasswordRef = useRef();
+
   const user = DecodeJWT(props.user);
   const userEmail = sessionStorage.getItem("email");
   const userPhoto = sessionStorage?.getItem("image")?.includes("http")
@@ -32,6 +40,66 @@ const Account = function (props) {
     const photo = userImageRef.current.files[0];
     const name = usernameRef.current.value;
     await infoHandler(name, photo, props.user);
+  };
+
+  const onPasswordChangeHandler = async (e) => {
+    e.preventDefault();
+    const password = currentPasswordRef.current.value;
+    const newPassword = newPasswordRef.current.value;
+    const confirmNewPassword = confirmNewPasswordRef.current.value;
+
+    if (!password || !newPassword || !confirmNewPassword) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `Please check input values`,
+        })
+      );
+      return;
+    }
+
+    if (newPassword !== confirmNewPassword) {
+      dispatch(
+        showNotification({
+          status: `error`,
+          title: `Invalid`,
+          message: `Password mismatch`,
+        })
+      );
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        `http://localhost:8080/backpack/api/r1/user/updatePassword`,
+        {
+          method: `PATCH`,
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${props.user}`,
+          },
+          body: JSON.stringify({
+            currentPassword: password,
+            password: newPassword,
+            confirmPassword: confirmNewPassword,
+          }),
+        }
+      );
+      const result = await res.json();
+      dispatch(
+        showNotification({
+          status: `success`,
+          title: `Changed`,
+          message: `Password changed`,
+        })
+      );
+      currentPasswordRef.current.value = "";
+      newPasswordRef.current.value = "";
+      confirmNewPasswordRef.current.value = "";
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -138,13 +206,17 @@ const Account = function (props) {
           <div className="line">&nbsp;</div>
           <div className="user-view__form-container">
             <h2 className="heading-secondary ma-bt-md">Password change</h2>
-            <form className="form form-user-settings">
+            <form
+              className="form form-user-settings"
+              onSubmit={onPasswordChangeHandler}
+            >
               <InputField
                 lableTitle={`current password`}
                 id="password-current"
                 inputType={`password`}
                 inputPlaceholder={`*******`}
                 required={true}
+                inputRef={currentPasswordRef}
               />
               <InputField
                 lableTitle={`new password`}
@@ -152,6 +224,7 @@ const Account = function (props) {
                 inputType={`password`}
                 inputPlaceholder={`*******`}
                 required={true}
+                inputRef={newPasswordRef}
               />
               <InputField
                 lableTitle={`confirm password`}
@@ -159,9 +232,11 @@ const Account = function (props) {
                 inputType={`password`}
                 inputPlaceholder={`*******`}
                 required={true}
+                inputRef={confirmNewPasswordRef}
               />
               <div className="form__group right">
                 <GreenButton
+                  type={`submit`}
                   title={`save password`}
                   classes={`btn--small btn--green`}
                 />

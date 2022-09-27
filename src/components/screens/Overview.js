@@ -113,9 +113,10 @@ const Overview = function (props) {
                   </h2>
                   {singleTour[0]?.tour.guides.map((guide) => (
                     <TourGuideCard
+                      key={guide._id}
                       role={guide.role}
                       name={guide.name}
-                      img={userimg}
+                      img={guide.photo.includes("http") ? guide.photo : userimg}
                     />
                   ))}
                 </div>

@@ -9,6 +9,7 @@ const InputField = ({
   extraStyles,
   inputPlaceholder,
   inputRef,
+  disabledType,
 }) => {
   return (
     <div className={`form__group ${extraStyles}`}>
@@ -23,6 +24,7 @@ const InputField = ({
         required={required}
         placeholder={inputPlaceholder}
         ref={inputRef}
+        disabled={disabledType}
       />
     </div>
   );

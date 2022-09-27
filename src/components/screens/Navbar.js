@@ -5,22 +5,17 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import userImg from "../assets/img/default.jpg";
 import { useCookies } from "react-cookie";
-import jwtDecode from "jwt-decode";
+import { DecodeJWT } from "./../../helper/decodeCookie";
 
 const Navbar = function (props) {
   // eslint-disable-next-line no-unused-vars
   const [cookies, _, removeCookie] = useCookies(["jwt"]);
 
   const jwtId = cookies.jwt;
-  let jwtToken;
-  try {
-    jwtToken = jwtDecode(jwtId);
-  } catch (error) {
-    console.log(error.message);
-  }
+  const jwtToken = DecodeJWT(jwtId);
 
   const filterName = jwtToken?.name.split(" ")[0];
-  const userImage = sessionStorage.getItem("image").includes("http")
+  const userImage = sessionStorage?.getItem("image")?.includes("http")
     ? sessionStorage.getItem("image")
     : userImg;
 

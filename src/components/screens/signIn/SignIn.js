@@ -43,6 +43,8 @@ const SignIn = function (props) {
       setCookie("jwt", data.token, { path: `/` });
       sessionStorage.setItem("image", data.data.photo);
       sessionStorage.setItem("email", data.data.email);
+      sessionStorage.setItem("role", data.data.role);
+
       dispatch(
         showNotification({
           status: `success`,

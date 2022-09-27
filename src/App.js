@@ -41,7 +41,7 @@ function App() {
           path="/auth/dashboard"
           element={cookie ? <Account user={cookie} /> : <SignIn />}
         />
-        <Route path="/auth/signin" element={cookie ? <SignIn /> : <Home />} />
+        <Route path="/auth/signin" element={!cookie ? <SignIn /> : <Home />} />
         <Route path="/auth/signup" element={!cookie ? <SignUp /> : <Home />} />
       </Routes>
       <Footer />

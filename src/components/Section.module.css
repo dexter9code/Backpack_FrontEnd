@@ -1,0 +1,49 @@
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16rem;
+    min-height: 100vh;
+}
+
+.banner {
+    background: url('./assets/svg/banner.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .fadeLeftMini {
+    animation: fadeLeftMini 1s;
+    animation-fill-mode: both;
+  }
+  
+  .fadeRightMini {
+    animation: fadeRightMini 1s;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeLeftMini {
+    0% {
+      opacity: 0;
+      transform: translate3d(-40%, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  
+  @keyframes fadeRightMini {
+    0% {
+      opacity: 0;
+      transform: translate3d(40%, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  

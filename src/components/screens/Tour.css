@@ -166,8 +166,8 @@
       linear,
       left top,
       right bottom,
-      from(#7dd56f),
-      to(#28b487)
+      from(#ff5349),
+      to(#cf4a21)
     );
     background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
     opacity: 0.4;
@@ -195,8 +195,8 @@
       linear,
       left top,
       right bottom,
-      from(rgba(125, 213, 111, 0.85)),
-      to(rgba(40, 180, 135, 0.85))
+      from(#ff5349),
+      to(#cf4a21)
     );
     background-image: linear-gradient(
       to bottom right,

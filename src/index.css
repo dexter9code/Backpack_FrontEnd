@@ -1,7 +1,24 @@
 :root {
   --section-rotate: 9vw;
-  --primary-color:#ff5349;
+  --primary-color:#ff577f;
   --secondary-color:#7cb6ff;
+  --pink500: "#FF577F";
+  --pink700: "#F96666";
+  --purple500: "#937DC2";
+  --purple700: "#6F38C5";
+  --green500: "rgba(125, 213, 111, 0.85)";
+  --green300: "#8FE3CF";
+  --dodgerBlue500: "#47B5FF";
+  --dodgerBlue700: "#31E1F7";
+  --gray500: "#AEBDCA";
+  --gray300: "#D8D8D8";
+  --gray700: "#777";
+  --white500: "#F9F9F9";
+  --white600: "#EAF6F6";
+  --black500: "#181818";
+  --cream500: "#FFECEF";
+  --greenGrad: "rgb(69,230,201)";
+  --red200: "#ffdad9";
 }
 
 ::-moz-selection {

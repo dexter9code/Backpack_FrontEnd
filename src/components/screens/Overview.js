@@ -228,7 +228,7 @@ const Overview = function (props) {
                 </button>
               </div>
             </div>
-          </section>{" "}
+          </section>
         </>
       )}
     </>

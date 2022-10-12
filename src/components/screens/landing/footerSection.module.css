@@ -1,0 +1,182 @@
+.root__footerContainer {
+    background-image: url('../../assets/svg/blobanimation.svg');
+    background-size: cover;
+    height: 500px;
+    background-position: center;
+    /* margin-top: 5rem; */
+    margin-bottom: 5rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section__cta {
+    margin-top: calc(0px - var(--section-rotate));
+    padding: 3rem;
+    padding-bottom: 11rem;
+    padding-top: calc(15rem + var(--section-rotate));
+    background-color: transparent;
+  }
+  
+  .cta {
+    position: relative;
+    max-width: 105rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 9rem 5rem 9rem 21rem;
+    border-radius: 2rem;
+    -webkit-box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3rem 8rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+  .cta__img {
+    height: 15rem;
+    width: 15rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 1rem 0.5rem 3rem rgba(0, 0, 0, 0.15);
+    box-shadow: 1rem 0.5rem 3rem rgba(0, 0, 0, 0.15);
+  }
+    
+  .cta__img__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#7dd56f),
+      to(#28b487)
+    );
+    background: linear-gradient(to right bottom, #7dd56f, #28b487);
+    z-index: 10;
+    -webkit-transform: translate(-35%, -50%);
+    transform: translate(-35%, -50%);
+  }
+  .cta__img__logo img {
+    width: 80%;
+  }
+  .cta__img__1 {
+    -webkit-transform: translate(-10%, -50%) scale(0.97);
+    transform: translate(-10%, -50%) scale(0.97);
+    z-index: 9;
+  }
+  .cta__img__2 {
+    -webkit-transform: translate(15%, -50%) scale(0.94);
+    transform: translate(15%, -50%) scale(0.94);
+    z-index: 8;
+  }
+  .cta__content {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr auto;
+    grid-gap: 0.7rem;
+    grid-auto-flow: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .heading__secondary {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#7dd56f),
+      to(#28b487)
+    );
+    background-image: linear-gradient(to right, #7dd56f, #28b487);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 0.1rem;
+    line-height: 1.3;
+    display: inline-block;
+    margin-right: 5rem;
+  }
+
+
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    font-size: 1.6rem;
+    padding: 1.4rem 3rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    font-weight: 400;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /*Add later when we use this for the button in form*/
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn:active {
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn:focus {
+    outline: none;
+    background-color: #ec842c;
+  }
+  
+  .btn__green {
+    background-color: #e09253;
+    color: #fff;
+  }
+  .btn__green::after {
+    background-color: #e09253;
+  }
+  
+
+  .span_all_rows {
+    grid-row: 1 / -1;
+  }
+
+
+  .email__input {
+    border: none;
+    width: 350px;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: darkgray;
+    margin-top: 0.8rem;
+    margin-right:1rem;
+  }
+
+  .email__input:focus,
+  .email__input:active{
+    border: none;
+  }

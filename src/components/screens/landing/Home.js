@@ -2,6 +2,7 @@ import HeaderSection from "./HeaderSection";
 import styles from "./home.module.css";
 import HomeMain from "./HomeMain";
 import SwiperSection from "./SwiperSection";
+import FooterSection from "./footerSection";
 
 const Home = function (props) {
   return (
@@ -15,6 +16,7 @@ const Home = function (props) {
       <div className={styles.swiper__container}>
         <SwiperSection />
       </div>
+      <FooterSection />
     </div>
   );
 };

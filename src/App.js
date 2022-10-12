@@ -33,7 +33,7 @@ function App() {
           message={notificationState.message}
         />
       )}
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tours" element={<Tour />} />
         <Route path="/tours/:id" element={<Overview />} />
@@ -43,8 +43,8 @@ function App() {
         />
         <Route path="/auth/signin" element={!cookie ? <SignIn /> : <Home />} />
         <Route path="/auth/signup" element={!cookie ? <SignUp /> : <Home />} />
-      </Routes> */}
-      <Home />
+      </Routes>
+
       <Footer />
     </>
   );

@@ -1,0 +1,75 @@
+.root__homeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.overImage {
+    width: 850px;
+    height: 750px;
+}
+
+.text__container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+}
+
+.text__container h1 {
+    font-weight: bold;
+    font-size: 5rem;
+    text-transform: uppercase;
+    margin-top: 8rem;
+}
+
+.text__container p {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 5rem;
+}
+
+.app__btn {
+    max-width: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: none; */
+    border-radius: 0.8rem;
+    padding: 0.6rem;
+    background-color: #000;
+    cursor: pointer;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.expo__icon {
+    width: 35px;
+    height: 35px;
+}
+
+.app__btn h2 {
+    font-size: 15px;
+    text-transform: capitalize;
+    padding-left: 1rem;
+    color:  aliceblue;
+}
+
+
+.app__btn:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .app__btn:active {
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }

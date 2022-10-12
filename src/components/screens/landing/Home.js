@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import HeaderSection from "./HeaderSection";
 import styles from "./home.module.css";
+import HomeMain from "./HomeMain";
 
 const Home = function (props) {
   const navigation = useNavigate();
@@ -12,6 +13,7 @@ const Home = function (props) {
           <HeaderSection />
         </div>
       </div>
+      <HomeMain />
     </div>
   );
 };

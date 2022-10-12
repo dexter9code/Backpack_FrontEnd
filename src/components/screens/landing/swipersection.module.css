@@ -1,0 +1,50 @@
+.root__swiperContiainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title__container {
+    text-align: center;
+    padding: 5rem;
+    /* background-color: aqua; */
+    /* background-color: '#000'; */
+    /* background-color: #f85; */
+    background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
+}
+
+.title__container h2 {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+
+.swiper__slide1{
+    background-image: url('../../../../public/tour-1-1.jpg');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+.swiper__slide2{
+    background-image: url('../../assets/img/commentImg2.jpg');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+.swiper__slide3{
+    background-image: url('../../assets/img/commentImg3.jpg');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.comment__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    align-items: center;
+    margin-top: 5rem;
+}

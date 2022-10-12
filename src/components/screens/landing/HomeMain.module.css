@@ -23,11 +23,16 @@
     margin-top: 8rem;
 }
 
+.text__container h1 span {
+    color: #ea7855;
+}
+
 .text__container p {
     font-size: 12px;
     font-weight: 600;
     text-transform: capitalize;
     margin-bottom: 5rem;
+    color: #000;
 }
 
 .app__btn {

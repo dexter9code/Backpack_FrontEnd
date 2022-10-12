@@ -7,7 +7,7 @@ const HeaderSection = function () {
     <section className={styles.root__section}>
       <div className={styles.text__container}>
         <h1>
-          backpack <br />
+          <span>backpack</span> <br />
           we take care <br />
           of your tip
         </h1>

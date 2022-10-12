@@ -13,7 +13,7 @@ const HomeMain = function (props) {
       <div className={styles.text__container}>
         <h1>
           connect on the go with
-          <br /> backpack app mobile app
+          <br /> <span>backpack</span> app mobile app
         </h1>
         <p>
           backpack provide amazing experience for buying your next dream

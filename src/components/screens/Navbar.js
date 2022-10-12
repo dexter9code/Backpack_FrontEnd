@@ -1,6 +1,7 @@
 import React from "react";
 
-import logo from "../assets/icons/backpackLogo.png";
+// import logo from "../assets/icons/backpackLogo.png";
+import transLogo from "../assets/icons/transIcon.png";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import userImg from "../assets/img/default.jpg";
@@ -27,27 +28,25 @@ const Navbar = function (props) {
   return (
     <div className="header">
       <nav className="nav nav--tours">
-        <Link to={"/tours"} className="nav__el">
-          All Tours
-        </Link>
-        <form className="nav__search">
+        <Link to={"/tours"} className="nav__el"></Link>
+        {/* <form className="nav__search">
           <button className="nav__search-btn">
-            {/* <svg> // need this to set with png or svg
+            <svg> // need this to set with png or svg
               <use xlinkHref="../assets/svg/icons.svg"></use>
-            </svg> */}
+            </svg>
           </button>
           <input
             type={"text"}
             placeholder="Search Tours"
             className="nav__search-input"
           />
-        </form>
+        </form> */}
+        <Link to={"/tours"}>
+          <div className="header__logo">
+            <img src={transLogo} alt="backpack-logo" />
+          </div>
+        </Link>
       </nav>
-      <Link to={"/tours"}>
-        <div className="header__logo">
-          <img src={logo} alt="backpack-logo" />
-        </div>
-      </Link>
       <nav className="nav nav--user">
         <button className="nav__el">My bookings</button>
         {jwtToken && (

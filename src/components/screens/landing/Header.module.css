@@ -18,6 +18,10 @@
     margin-top: 10rem;
 }
 
+.text__container h1 span {
+    color: #dc548b;
+}
+
 .text__container p {
     font-weight: 600;
     text-transform: capitalize;
@@ -25,6 +29,7 @@
     font-size: 12px;
     padding: 1rem;
     margin-bottom: 5rem; 
+    color: #f7f7f7
 }
 
 .animation__container {

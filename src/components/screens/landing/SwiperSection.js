@@ -3,7 +3,6 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import styles from "./swipersection.module.css";
-import ReviewCard from "../../common/reviewCard/ReviewCard";
 import user1 from "../../assets/users/user-1.jpg";
 import user2 from "../../assets/users/user-8.jpg";
 import user3 from "../../assets/users/user-3.jpg";
@@ -21,7 +20,7 @@ const SwiperSection = function () {
       <Swiper
         autoplay={{
           delay: 8000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         pagination={{ dynamicBullets: true }}
         modules={[Pagination, Autoplay]}
@@ -57,15 +56,15 @@ const SwiperSection = function () {
         </SwiperSlide>
         <SwiperSlide className={styles.swiper__slide3}>
           <div className={styles.comment__container}>
-            <ReviewCard
-              userImg={user1}
-              userName="max"
-              review={`A wonderful 2 & a half weeks spent with no worries as all the transfers & itinerary were organized for us. Sammer did an excellent job of fulfilling our wishes for a memorable experience that provided us with just the right mix of excursions & leisure time to get the most out of visiting our destination.`}
+            <HomeReview
+              userImage={user1}
+              userName={`Max`}
+              comment={`A wonderful 2 & a half weeks spent with no worries as all the transfers & itinerary were organized for us. Sammer did an excellent job of fulfilling our wishes for a memorable experience that provided us with just the right mix of excursions & leisure time to get the most out of visiting our destination.`}
             />
-            <ReviewCard
-              userImg={user2}
-              userName="Juila"
-              review={`Stayed in 6 excellent resorts, which lived up to their descriptions. Holiday lived up to our expectations - wildlife, coast, countryside, culture, history, excellent food, friendly people`}
+            <HomeReview
+              userImage={user2}
+              userName={`Juila`}
+              comment={`Stayed in 6 excellent resorts, which lived up to their descriptions. Holiday lived up to our expectations - wildlife, coast, countryside, culture, history, excellent food, friendly people`}
             />
           </div>
         </SwiperSlide>
